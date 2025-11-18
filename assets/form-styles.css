@@ -285,3 +285,48 @@ textarea:invalid:focus {
     outline: none;
 }
 
+
+/* ===== PART 3: JAVASCRIPT ENHANCEMENTS ===== */
+
+/* Flash animation for invalid character input */
+@keyframes flash-red {
+    0%, 100% { background-color: #fff; }
+    50% { background-color: #ffe6e6; }
+}
+
+.flash-error {
+    animation: flash-red 0.5s ease-in-out;
+    border-color: #e74c3c !important;
+}
+
+/* Character counter styling */
+.char-counter {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: right;
+}
+
+.char-counter.warning {
+    color: #f39c12;
+    font-weight: 600;
+}
+
+.char-counter.danger {
+    color: #e74c3c;
+    font-weight: 700;
+    background-color: #fff5f5;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Output elements visibility */
+output {
+    display: none;
+}
+
+output:not(:empty) {
+    display: block;
+}
+
