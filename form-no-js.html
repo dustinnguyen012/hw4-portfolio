@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - No JavaScript</title>
+    <link rel="stylesheet" href="assets/form-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Form</h1>
+        <p>Fill out the form below to get in touch</p>
+    </header>
+
+    <main>
+        <form id="contact-form" action="https://httpbin.org/post" method="POST">
+            <!-- Hidden field for bot detection -->
+            <input type="hidden" name="possible_bot" value="true">
+
+            <div class="form-group">
+                <label for="name">Name: <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    minlength="2"
+                    maxlength="100"
+                    pattern="^[A-Za-z\s\-']+$"
+                    placeholder="Enter your full name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email: <span class="required">*</span></label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    maxlength="100"
+                    placeholder="your.email@example.com"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone"
+                    pattern="^[\d\s\-\(\)\+]+$"
+                    maxlength="20"
+                    placeholder="(123) 456-7890"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject: <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject" 
+                    required
+                    minlength="3"
+                    maxlength="150"
+                    pattern="^[A-Za-z0-9\s\-_,.!?]+$"
+                    placeholder="Brief subject line"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments: <span class="required">*</span></label>
+                <textarea 
+                    id="comments" 
+                    name="comments" 
+                    required
+                    minlength="10"
+                    maxlength="500"
+                    rows="6"
+                    placeholder="Enter your message here (10-500 characters)"
+                ></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+
+            <output id="error-output" aria-live="polite"></output>
+            <output id="info-output" aria-live="polite"></output>
+        </form>
+    </main>
+
+    <footer>
+        <p><a href="index.html">← Back to Home</a></p>
+    </footer>
+</body>
+</html>

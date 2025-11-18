@@ -1,0 +1,227 @@
+/* ===== CSS RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* ===== HEADER STYLES ===== */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* ===== MAIN CONTAINER ===== */
+main {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== FORM STYLES ===== */
+form {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== FORM GROUP (Using Flexbox) ===== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ===== LABEL STYLES ===== */
+label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.required {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* ===== INPUT & TEXTAREA BASE STYLES ===== */
+input,
+textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #dcdde1;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ===== VALIDATION PSEUDO-CLASSES ===== */
+
+/* Required field indicator */
+input:required:not(:placeholder-shown),
+textarea:required:not(:placeholder-shown) {
+    border-left: 4px solid #3498db;
+}
+
+/* Valid state - only show after user interaction */
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+    background-color: #f0fff4;
+}
+
+/* Invalid state - show warning */
+input:invalid:not(:placeholder-shown):not(:focus),
+textarea:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+
+/* User invalid - browser support for better UX */
+input:user-invalid,
+textarea:user-invalid {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+button[type="submit"] {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+button[type="submit"]:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Disable submit if form is invalid */
+form:invalid button[type="submit"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== OUTPUT ELEMENTS ===== */
+output {
+    display: block;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    min-height: 20px;
+}
+
+#error-output:not(:empty) {
+    background-color: #ffe6e6;
+    border: 1px solid #e74c3c;
+    color: #c0392b;
+    margin-top: 10px;
+}
+
+#info-output:not(:empty) {
+    background-color: #e8f5e9;
+    border: 1px solid #27ae60;
+    color: #27ae60;
+    margin-top: 10px;
+}
+
+/* ===== FOOTER STYLES ===== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* High contrast focus states */
+*:focus-visible {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Ensure animations respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
