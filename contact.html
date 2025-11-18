@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- IMAGE CREDITS: Images from Unsplash.com - Free stock photos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Dustin Nguyen</title>
+  <meta name="description" content="Get in touch with Dustin Nguyen">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    form { border: 2px solid #333; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <p>This form works without JavaScript. All fields are accessible.</p>
+  </noscript>
+
+  <header>
+      <!-- Pure CSS Hamburger Menu -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" hidden>
+  <label for="menu-toggle" class="menu-toggle-label" aria-label="Toggle navigation menu">
+    <span class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </label>
+    <h1>Contact Me</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Get In Touch</h2>
+      <p>I'd <strong>love</strong> to hear from you! Whether you have a project in mind, want to collaborate, or just want to say hi, feel free to reach out.</p>
+      <p><em>Response time:</em> I typically reply within <b>24-48 hours</b>.</p>
+    </section>
+
+    <section>
+      <h2>Contact Form</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <fieldset>
+          <legend>Your Information</legend>
+          
+          <div>
+            <label for="name">Full Name <span>(required)</span></label><br>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div>
+            <label for="email">Email Address <span>(required)</span></label><br>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div>
+            <label for="phone">Phone Number <span>(optional)</span></label><br>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Message Details</legend>
+          
+          <div>
+            <label for="subject">Subject</label><br>
+            <input type="text" id="subject" name="subject" list="subject-suggestions">
+            <datalist id="subject-suggestions">
+              <option value="Project Inquiry">
+              <option value="Collaboration">
+              <option value="Job Opportunity">
+              <option value="General Question">
+            </datalist>
+          </div>
+
+          <div>
+            <label for="message">Your Message <span>(required)</span></label><br>
+            <textarea id="message" name="message" rows="8" required></textarea>
+          </div>
+
+          <div>
+            <label for="urgency">Priority Level:</label><br>
+            <input type="range" id="urgency" name="urgency" min="1" max="5" value="3">
+            <span>1 (Low) to 5 (High)</span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferred Contact Method</legend>
+          
+          <div>
+            <input type="radio" id="contact-email" name="contact-method" value="email" checked>
+            <label for="contact-email">Email</label>
+          </div>
+
+          <div>
+            <input type="radio" id="contact-phone" name="contact-method" value="phone">
+            <label for="contact-phone">Phone</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Subscribe to newsletter</label>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Send Message</button>
+          <button type="reset">Clear Form</button>
+        </div>
+
+        <p><i>Note:</i> Form submissions are processed securely. Your information will not be shared.</p>
+      </form>
+    </section>
+
+    <section>
+      <h2>Other Ways to Connect</h2>
+      <div>
+        <h3>Direct Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:dustinnguyen5412@gmail.com">dustinnguyen5412@gmail.com</a></p>
+        <p><strong>Location:</strong> San Diego, CA</p>
+        
+        <h3>Social Media</h3>
+        <ul>
+          <li><a href="">LinkedIn</a></li>
+          <li><a href="">GitHub</a></li>
+        </ul>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Response Time Tracker</h2>
+      <p>Average response time this month:</p>
+      <progress value="18" max="48">18 hours</progress>
+      <span><i>18 hours</i> (Target: 24-48 hours)</span>
+    </section>
+
+    <section>
+      <h2>Map</h2>
+      <p>General location (embedded map):</p>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107221.7!2d-117.1611!3d32.7157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9530fad921e4b%3A0xd3a21fdfd15df79!2sSan%20Diego%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890"
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        title="San Diego location map">
+      </iframe>
+    </section>
+
+    <dialog open>
+      <h3>Quick Tip</h3>
+      <p>For the fastest response, include <strong>"Portfolio Inquiry"</strong> in your subject line.</p>
+    </dialog>
+  </main>
+
+  <footer>
+    <p><a href="index.html">Back to Home</a> | <a href="about.html">Learn More About Me</a></p>
+  </footer>
+
+</body>
+</html>

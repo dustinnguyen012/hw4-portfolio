@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Dustin Nguyen</title>
+  <meta name="description" content="Portfolio of web development and design projects">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header>
+      <!-- Pure CSS Hamburger Menu -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" hidden>
+  <label for="menu-toggle" class="menu-toggle-label" aria-label="Toggle navigation menu">
+    <span class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </label>
+    <h1>My Projects</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Projects</li>
+      </ol>
+    </nav>
+
+    <section>
+      <h2>Filter Projects</h2>
+      <div class="filter-buttons">
+        <p>Categories:</p>
+        <button type="button" class="filter-btn active" data-category="all">All Projects</button>
+        <button type="button" class="filter-btn" data-category="web-dev">Web Development</button>
+        <button type="button" class="filter-btn" data-category="ux">UX Design</button>
+        <button type="button" class="filter-btn" data-category="data-viz">Data Visualization</button>
+      </div>
+    </section>
+
+    <section class="project-grid">
+      <h2>Featured Work</h2>
+      
+      <article data-category="web-dev">
+        <h3>FitTrack Pro - Fitness Tracker</h3>
+        <picture>
+          <source srcset="assets/images/project1.webp" type="image/webp">
+          <img src="assets/images/project1.jpg" alt="FitTrack Pro fitness tracking app screenshot" width="400" height="300">
+        </picture>
+        <p>A mobile-first fitness tracking app for logging workouts and monitoring strength training progress. Features real-time statistics, custom routines, and progress visualization.</p>
+        <div>
+          <p><strong>Status:</strong> Complete</p>
+          <progress value="100" max="100">Complete</progress>
+          <br>
+          <span>Project completed</span>
+        </div>
+        <p><strong>Tech Stack:</strong> React, TypeScript, Firebase, PWA</p>
+        <p><a href="#" onclick="return false;">View details</a></p>
+      </article>
+
+      <article data-category="web-dev">
+        <h3>ExpenseTracker - Budget Manager</h3>
+        <picture>
+          <source srcset="assets/images/project2.webp" type="image/webp">
+          <img src="assets/images/project2.jpg" alt="ExpenseTracker budget management app screenshot" width="400" height="300">
+        </picture>
+        <p>A personal finance management app for tracking expenses and visualizing spending patterns. Features budget goals, category analysis, and monthly reports with interactive charts.</p>
+        <div>
+          <p><strong>Status:</strong> In Progress</p>
+          <progress value="75" max="100">75% complete</progress>
+          <br>
+          <span>Currently in development</span>
+        </div>
+        <p><strong>Tech Stack:</strong> React, Chart.js, IndexedDB</p>
+        <p><a href="#" onclick="return false;">View details</a></p>
+      </article>
+
+      <article data-category="data-viz">
+        <h3>WeatherWise - Dashboard</h3>
+        <picture>
+          <source srcset="assets/images/project3.webp" type="image/webp">
+          <img src="assets/images/project3.jpg" alt="WeatherWise dashboard screenshot" width="400" height="300">
+        </picture>
+        <p>An interactive weather dashboard providing real-time forecasts and alerts. Features location search, 7-day forecasts, and dynamic visualizations that change based on weather conditions.</p>
+        <div>
+          <p><strong>Status:</strong> Complete</p>
+          <progress value="100" max="100">Complete</progress>
+          <br>
+          <span>Live and deployed</span>
+        </div>
+        <p><strong>Tech Stack:</strong> JavaScript, Weather API, Chart.js</p>
+        <p><a href="#" onclick="return false;">View details</a></p>
+      </article>
+    </section>
+
+    <section>
+      <h2>More Information</h2>
+      <p>Check out my <a href="experiments.html">experiments page</a> for technical demonstrations.</p>
+      <noscript>
+        <p>JavaScript is disabled. All content is still accessible.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="index.html">Back to Home</a> | <a href="contact.html">Get in Touch</a></p>
+  </footer>
+
+</body>
+</html>

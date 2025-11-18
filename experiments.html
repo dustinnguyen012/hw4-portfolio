@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiments - HTML Tag Demonstrations</title>
+  <meta name="description" content="Demonstrations of HTML5 tags and features">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* Semantic CSS custom element styling */
+    demo-card {
+      display: block;
+      border: 2px solid #4CAF50;
+    }
+    demo-card h4 {
+      border-bottom: 1px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <!-- Pure CSS Hamburger Menu -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" hidden>
+  <label for="menu-toggle" class="menu-toggle-label" aria-label="Toggle navigation menu">
+    <span class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </label>
+    <h1>HTML Tag Experiments</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Template Element</h2>
+      <p>The template tag holds content that won't render until cloned with JavaScript.</p>
+      <template id="demo-template">
+        <article>
+          <h4>Template Content</h4>
+          <p>This is inside a template and won't show without JS activation.</p>
+        </article>
+      </template>
+      <p>Template content is hidden above (view source to see it).</p>
+    </section>
+
+    <section>
+      <h2>Picture Element</h2>
+      <p>The picture element allows multiple image sources for responsive design:</p>
+      <picture>
+        <source srcset="assets/images/demo-large.webp" type="image/webp" media="(min-width: 800px)">
+        <source srcset="assets/images/demo-small.webp" type="image/webp">
+        <img src="assets/images/demo.jpg" alt="Responsive image demonstration" width="600" height="400">
+      </picture>
+    </section>
+
+    <section>
+      <h2>Audio Element</h2>
+      <p>Native HTML5 audio player:</p>
+      <audio controls>
+        <source src="assets/audio/sample.mp3" type="audio/mpeg">
+        <source src="assets/audio/sample.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+
+    <section>
+      <h2>Video Element</h2>
+      <p>Native HTML5 video player with multiple formats:</p>
+      <video controls width="640" height="360">
+        <source src="assets/video/demo.mp4" type="video/mp4">
+        <source src="assets/video/demo.webm" type="video/webm">
+        Your browser does not support the video element.
+      </video>
+    </section>
+
+    <section>
+      <h2>Canvas Element</h2>
+      <p>Drawing graphics with JavaScript and Canvas API:</p>
+      <canvas id="demo-canvas" width="400" height="200">
+        Canvas not supported. This demonstrates drawing geometric shapes with the Canvas API.
+      </canvas>
+      <script>
+        // Canvas demo (under 15 lines)
+        const canvas = document.getElementById('demo-canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#e0e0e0';
+        ctx.fillRect(0, 0, 400, 200);
+        ctx.fillStyle = '#4CAF50';
+        ctx.fillRect(50, 50, 100, 80);
+        ctx.fillStyle = '#2196F3';
+        ctx.beginPath();
+        ctx.arc(250, 90, 40, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#000';
+        ctx.font = '16px Arial';
+        ctx.fillText('Canvas Demo', 150, 170);
+      </script>
+    </section>
+
+    <section>
+      <h2>Source Element</h2>
+      <p>The source element is used within picture, audio, and video elements (see examples above).</p>
+    </section>
+
+    <section>
+      <h2>MathML - Extra Credit</h2>
+      <p>Einstein's famous equation using MathML:</p>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>E</mi>
+          <mo>=</mo>
+          <mi>m</mi>
+          <msup>
+            <mi>c</mi>
+            <mn>2</mn>
+          </msup>
+        </mrow>
+      </math>
+      <p><strong>Why MathML wasn't widely used until recently:</strong></p>
+      <p>Despite being part of the HTML specification for years, MathML had extremely limited browser support. Internet Explorer never supported it, Chrome dropped support from 2013-2023, and Safari's implementation was incomplete. According to caniuse.com, it wasn't until Chrome 109 (January 2023) that MathML Core gained support in Chromium browsers, finally making it viable for production use. Before this, developers had to rely on JavaScript libraries like MathJax or images for mathematical notation.</p>
+    </section>
+
+    <section>
+      <h2>Custom Semantic Element (CSS-based)</h2>
+      <p>This custom element is styled with CSS only:</p>
+      <demo-card>
+        <h4>Demo Card Title</h4>
+        <p>This is a custom semantic element called "demo-card" that uses only CSS for styling (no JavaScript required).</p>
+      </demo-card>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="index.html">Return to Home</a></p>
+  </footer>
+
+</body>
+</html>

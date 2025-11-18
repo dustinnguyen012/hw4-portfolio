@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dustin Nguyen - Portfolio</title>
+  <meta name="description" content="Portfolio showcasing web development projects and skills">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/analytics.js/2.9.1/analytics.min.js" defer></script>
+  <style>
+    /* Only border for structure - 3 properties max */
+    main { border: 1px solid #ccc; }
+    .sidebar { border-left: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <p>This site works best with JavaScript enabled for enhanced features.</p>
+  </noscript>
+
+  <header>
+      <!-- Pure CSS Hamburger Menu -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" hidden>
+  <label for="menu-toggle" class="menu-toggle-label" aria-label="Toggle navigation menu">
+    <span class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </label>
+    <h1>Dustin Nguyen</h1>
+    <p>Full-Stack Developer <span>&</span> Designer</p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to My Portfolio</h2>
+      <picture>
+        <source srcset="assets/images/hero.webp" type="image/webp">
+        <img src="assets/images/hero.jpg" alt="Workspace with laptop and design tools" width="800" height="400">
+      </picture>
+      <p>I'm a <strong>web developer</strong> passionate about creating <em>accessible</em> and <b>user-friendly</b> digital experiences. My work focuses on <i>semantic HTML</i>, progressive enhancement, and thoughtful design.</p>
+      <p>Currently studying Computer Science at UC San Diego,<br> currently deciding specialization.</p>
+    </section>
+
+    <section>
+      <h2>Featured Work</h2>
+      <article>
+        <h3>Recent Project Highlight</h3>
+        <div>
+          <picture>
+            <source srcset="assets/images/project1.webp" type="image/webp">
+            <img src="assets/images/project1.jpg" alt="Project 1" width="400" height="300">
+          </picture>
+          <div>
+            <h4>Fitness Tracker</h4>
+            <progress value="100" max="100">Complete</progress>
+            <p><span>Status: Complete</span></p>
+            <p><a href="projects.html">View all projects</a></p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <h3>Quick Links</h3>
+        <nav aria-label="Secondary navigation">
+          <div>
+            <h4>Skills</h4>
+            <ul>
+              <li>HTML5 & CSS3</li>
+              <li>JavaScript & React</li>
+              <li>UX Research</li>
+              <li>Accessibility (WCAG)</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Recent Updates</h4>
+            <ol>
+              <li>Added new case study</li>
+              <li>Updated resume</li>
+              <li>Published blog post</li>
+            </ol>
+          </div>
+        </nav>
+  
+      </aside>
+    </section>
+
+    <section>
+      <h2>Technologies I Use</h2>
+      <svg width="200" height="100" role="img" aria-label="Technology stack visualization">
+        <rect width="180" height="80" x="10" y="10" fill="#f0f0f0" stroke="#333"/>
+        <text x="100" y="55" text-anchor="middle" font-size="16" fill="#333">HTML • CSS • JS</text>
+      </svg>
+      
+    </section>
+  </main>
+
+  <footer>
+    <p>Connect with me: <a href="mailto:dun012@ucsd.edu">dun012@ucsd.edu</a></p>
+    <p><a href="assets/resume.pdf">Download Resume (PDF)</a></p>
+    <p>&copy; 2024 Dustin Nguyen. All rights reserved.</p>
+  </footer>
+
+  <!-- Custom semantic CSS element -->
+  <project-card>
+    <h3>Custom Project Card</h3>
+    <p>This is a semantic custom element styled with CSS.</p>
+  </project-card>
+
+  <!-- Hello World console custom element -->
+  <hello-world-console></hello-world-console>
+
+</body>
+</html>
