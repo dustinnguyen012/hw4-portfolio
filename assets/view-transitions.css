@@ -1,0 +1,63 @@
+/* ===== VIEW TRANSITION API STYLES ===== */
+
+/* Enable view transitions for navigation */
+@view-transition {
+  navigation: auto;
+}
+
+/* Customize the transition animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+}
+
+/* Fade and slide effect */
+::view-transition-old(root) {
+  animation-name: fade-out, slide-to-left;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in, slide-from-right;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(30px);
+  }
+}
+
+/* Smooth transitions for theme toggle too */
+::view-transition-group(root) {
+  animation-timing-function: ease-in-out;
+}
+
+/* Fallback for browsers that don't support View Transitions */
+@supports not (view-transition-name: none) {
+  /* Add a simple fade effect as fallback */
+  body {
+    animation: simple-fade 0.3s ease-in-out;
+  }
+  
+  @keyframes simple-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
