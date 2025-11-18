@@ -60,7 +60,8 @@ nameInput.addEventListener('input', function(e) {
     if (!pattern.test(this.value)) {
         const invalidChar = this.value[this.value.length - 1];
         this.value = this.value.slice(0, -1);
-        flashField(this, `⚠️ Invalid character "${invalidChar}" - Only letters, spaces, hyphens, and apostrophes allowed`);
+        const msg = 'Invalid character "' + invalidChar + '" - Only letters, spaces, hyphens, and apostrophes allowed';
+        flashField(this, msg);
     }
 });
 
@@ -70,7 +71,8 @@ if (phoneInput) {
         if (!pattern.test(this.value)) {
             const invalidChar = this.value[this.value.length - 1];
             this.value = this.value.slice(0, -1);
-            flashField(this, `⚠️ Invalid character "${invalidChar}" - Only numbers and phone symbols allowed`);
+            const msg = 'Invalid character "' + invalidChar + '" - Only numbers and phone symbols allowed';
+            flashField(this, msg);
         }
     });
 }
@@ -80,7 +82,8 @@ subjectInput.addEventListener('input', function(e) {
     if (!pattern.test(this.value)) {
         const invalidChar = this.value[this.value.length - 1];
         this.value = this.value.slice(0, -1);
-        flashField(this, `⚠️ Invalid character "${invalidChar}" - Only letters, numbers, and basic punctuation allowed`);
+        const msg = 'Invalid character "' + invalidChar + '" - Only letters, numbers, and basic punctuation allowed';
+        flashField(this, msg);
     }
 });
 
@@ -95,12 +98,12 @@ function updateCharCounter() {
     const currentLength = commentsTextarea.value.length;
     const remaining = COMMENTS_MAX_LENGTH - currentLength;
     
-    charCounter.textContent = `${remaining} characters remaining (${currentLength}/${COMMENTS_MAX_LENGTH})`;
+    charCounter.textContent = remaining + ' characters remaining (' + currentLength + '/' + COMMENTS_MAX_LENGTH + ')';
     charCounter.classList.remove('warning', 'danger');
     
     if (currentLength >= COMMENTS_MAX_LENGTH) {
         charCounter.classList.add('danger');
-        charCounter.textContent = `⚠️ Maximum character limit reached! (${currentLength}/${COMMENTS_MAX_LENGTH})`;
+        charCounter.textContent = 'Maximum character limit reached! (' + currentLength + '/' + COMMENTS_MAX_LENGTH + ')';
     } else if (currentLength >= COMMENTS_WARNING_THRESHOLD) {
         charCounter.classList.add('warning');
     }
@@ -174,10 +177,8 @@ commentsTextarea.addEventListener('blur', function() {
 // ===== FORM SUBMISSION WITH ERROR TRACKING =====
 
 form.addEventListener('submit', function(e) {
-    // Clear messages but DON'T reset form_errors - we want to keep history
     clearMessages();
     
-    // Check validity of each field
     const fields = [
         { element: nameInput, name: 'name' },
         { element: emailInput, name: 'email' },
@@ -187,7 +188,7 @@ form.addEventListener('submit', function(e) {
     ];
     
     let hasErrors = false;
-    let currentErrors = []; // Track errors for THIS submission attempt
+    let currentErrors = [];
     
     fields.forEach(field => {
         if (!field.element.checkValidity()) {
@@ -201,10 +202,10 @@ form.addEventListener('submit', function(e) {
                 errorMessage = 'Field is required';
             } else if (field.element.validity.tooShort) {
                 errorType = 'too_short';
-                errorMessage = `Minimum length is ${field.element.minLength}`;
+                errorMessage = 'Minimum length is ' + field.element.minLength;
             } else if (field.element.validity.tooLong) {
                 errorType = 'too_long';
-                errorMessage = `Maximum length is ${field.element.maxLength}`;
+                errorMessage = 'Maximum length is ' + field.element.maxLength;
             } else if (field.element.validity.patternMismatch) {
                 errorType = 'pattern_mismatch';
                 errorMessage = 'Invalid format';
@@ -213,7 +214,6 @@ form.addEventListener('submit', function(e) {
                 errorMessage = 'Invalid type (e.g., not a valid email)';
             }
             
-            // Add to current errors
             const errorObj = {
                 field: field.name,
                 error_type: errorType,
@@ -223,21 +223,18 @@ form.addEventListener('submit', function(e) {
             };
             
             currentErrors.push(errorObj);
-            // Also add to historical form_errors array
             form_errors.push(errorObj);
         }
     });
     
-    // If there are errors, prevent submission
     if (hasErrors) {
         e.preventDefault();
-        showError(`⚠️ Please fix ${currentErrors.length} error(s) before submitting`);
+        showError('Please fix ' + currentErrors.length + ' error(s) before submitting');
         console.log('Form Errors (current attempt):', currentErrors);
         console.log('Form Errors (all historical):', form_errors);
         return false;
     }
     
-    // If no errors, add form_errors field to submission
     let formErrorsInput = document.getElementById('form-errors-input');
     if (!formErrorsInput) {
         formErrorsInput = document.createElement('input');
@@ -247,10 +244,8 @@ form.addEventListener('submit', function(e) {
         form.appendChild(formErrorsInput);
     }
     
-    // Send ALL historical errors
     formErrorsInput.value = JSON.stringify(form_errors);
-    
-    showInfo('✓ Form is valid! Submitting...');
+    showInfo('Form is valid! Submitting...');
     console.log('Submitting with form_errors:', form_errors);
     
     return true;
@@ -264,7 +259,7 @@ function checkFormCompleteness() {
                      subjectInput.checkValidity() && commentsTextarea.checkValidity();
     
     if (allFilled && allValid) {
-        showInfo('✓ All required fields are complete! You can now submit the form.');
+        showInfo('All required fields are complete! You can now submit the form.');
     }
 }
 
